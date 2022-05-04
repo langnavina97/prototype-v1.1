@@ -115,8 +115,6 @@ class App extends Component {
     const web3 = window.web3;
     const chainIdDec = await web3.eth.getChainId();
 
-    this.setState({chainId: chainIdDec})
-
     this.setState({chainId: chainIdDec});
   }
 
@@ -144,7 +142,7 @@ class App extends Component {
     }
     if(chainIdDec == "56") {
       this.setState({ account: accounts[0]}) 
-      const SwapContract = new web3.eth.Contract(IndexSwap.abi, "0x380d2b6742AAD7ae97f199a109c1F81A34E1cb86");
+      const SwapContract = new web3.eth.Contract(IndexSwap.abi, "0xB4aF135E2092C916358eF7be58120014794753B5");
       const NFTPortfolioContract = new web3.eth.Contract(NFTSwap.abi, "0x40A367c5320440a1aa78aCBC5af0A017Ed1F3772"); 
       const NFTTokenContract = new web3.eth.Contract(IndexToken.abi, "0x16dBB234A9a595967DdC2ea1bb53379752f09Ad4"); 
       const DeFiTokenContract = new web3.eth.Contract(IndexToken.abi, "0x6E49456f284e3da7f1515eEE120E2706cab69fD5");
@@ -260,66 +258,80 @@ class App extends Component {
     const contractAddress = "0x40A367c5320440a1aa78aCBC5af0A017Ed1F3772"; 
 
     const aXSTokenConntract = new web3.eth.Contract(IERC.abi, "0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0");
-    await aXSTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    await aXSTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const rACATokenConntract = new web3.eth.Contract(IERC.abi, "0x12BB890508c125661E03b09EC06E404bc9289040");
-    await rACATokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    await rACATokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const mBOXTokenConntract = new web3.eth.Contract(IERC.abi, "0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377");
-    await mBOXTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    await mBOXTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const mCTokenConntract = new web3.eth.Contract(IERC.abi, "0x949D48EcA67b17269629c7194F4b727d4Ef9E5d6");
-    await mCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    await mCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const aLICETokenConntract = new web3.eth.Contract(IERC.abi, "0xAC51066d7bEC65Dc4589368da368b212745d63E8");
-    await aLICETokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    await aLICETokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
   }
 
   approveDeFiTokensMainnet = async() => {
     const web3 = new Web3(window.ethereum);
     
-    const contractAddress = "0x380d2b6742AAD7ae97f199a109c1F81A34E1cb86"; 
+    const contractAddress = "0xB4aF135E2092C916358eF7be58120014794753B5"; 
 
     const BTCTokenConntract = new web3.eth.Contract(IERC.abi, "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c");
-    BTCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    BTCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const ETHTokenConntract = new web3.eth.Contract(IERC.abi, "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"); 
-    ETHTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    ETHTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const SHIBATokenConntract = new web3.eth.Contract(IERC.abi, "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D");
-    SHIBATokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    SHIBATokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const XRPTokenConntract = new web3.eth.Contract(IERC.abi, "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE");
-    XRPTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    XRPTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const LTCTokenConntract = new web3.eth.Contract(IERC.abi, "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94");
-    LTCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    LTCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const DAITokenConntract = new web3.eth.Contract(IERC.abi, "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3");
-    DAITokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    DAITokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const MAKERTokenConntract = new web3.eth.Contract(IERC.abi, "0x5f0Da599BB2ccCfcf6Fdfd7D81743B6020864350");
-    MAKERTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    MAKERTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const LINKTokenConntract = new web3.eth.Contract(IERC.abi, "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD");
-    LINKTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    LINKTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const UNITokenConntract = new web3.eth.Contract(IERC.abi, "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1");
-    UNITokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    UNITokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
 
     const AAVETokenConntract = new web3.eth.Contract(IERC.abi, "0xfb6115445Bff7b52FeB98650C87f44907E58f802");
-    AAVETokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
+    AAVETokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
+  }
+
+  calcTokenBalanceMainnet = async(token, user) => {
+    const web3 = new Web3(window.ethereum);
+    const vault = "0xD2aDa2CC6f97cfc1045B1cF70b3149139aC5f2a2";
+
+    const indexShare = this.state.IndexSwap.methods.balanceOf(user).call();
+    const totalSupplyIndex = this.state.IndexSwap.totalSupply().call();
+
+    const TokenContract = new web3.eth.Contract(IERC.abi, token);
+    const tokenSupply = TokenContract.methods.balanceOf(vault);
+
+    let tokenShare = indexShare / totalSupplyIndex;
+    return tokenShare * tokenSupply;
   }
 
   withdrawDeFiMainnet = async () => {
-    const vault = "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0";
+    const vault = "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7";
 
     const web3 = new Web3(window.ethereum);
 
     var withdrawAmt = this.state.withdrawValueDefi;
     var withdrawAmountInWei = web3.utils.toWei(withdrawAmt, 'ether');
 
-    await this.state.DeFiTokenContract.methods.approve("0x380d2b6742AAD7ae97f199a109c1F81A34E1cb86", "7787357773333787487837458347754874574837458374")
+    await this.state.DeFiTokenContract.methods.approve("0xB4aF135E2092C916358eF7be58120014794753B5", "7787357773333787487837458347754874574837458374")
     .send({from: this.state.account});
 
 
@@ -340,7 +352,7 @@ class App extends Component {
   }
 
   withdrawNFTMainnet = async () => {
-      const vault = "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0";
+      const vault = "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7";
   
       const web3 = new Web3(window.ethereum);
   
@@ -432,78 +444,8 @@ class App extends Component {
 
   }
 
-  approveNFTTokens = async() => {
-    const web3 = new Web3(window.ethereum);  
-
-    const aXSTokenConntract = new web3.eth.Contract(IERC.abi, "0xf34D883EcdE3238B153f38230987a0F4c221a48F");
-    await aXSTokenConntract.methods.approve("0x0f444D6F25d2F8Fd0639eEc68ce4AA1F03FF6F4F", "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
-
-    const mANATokenConntract = new web3.eth.Contract(IERC.abi, "0x8bf2dF0Ff8528088475183a68678bd1Cd7691b69");
-    await mANATokenConntract.methods.approve("0x0f444D6F25d2F8Fd0639eEc68ce4AA1F03FF6F4F", "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
-
-    const sANDTokenConntract = new web3.eth.Contract(IERC.abi, "0x1631A54AC95Ecb0085dB6b8ACf80c4Cee72AEB06");
-    await sANDTokenConntract.methods.approve("0x0f444D6F25d2F8Fd0639eEc68ce4AA1F03FF6F4F", "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
-
-    const tHETATokenConntract = new web3.eth.Contract(IERC.abi, "0x19A5E53eC7B385dbE2E587Ba989eA2AB8F7EaF1e");
-    await tHETATokenConntract.methods.approve("0x0f444D6F25d2F8Fd0639eEc68ce4AA1F03FF6F4F", "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
-
-    const fLOWTokenConntract = new web3.eth.Contract(IERC.abi, "0xe5c48084E1974a971Bd5dF4d9B01daCCA86d5567");
-    await fLOWTokenConntract.methods.approve("0x0f444D6F25d2F8Fd0639eEc68ce4AA1F03FF6F4F", "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
-
-    const xTZTokenConntract = new web3.eth.Contract(IERC.abi, "0xC5De9d5B0BA5b408a3e9530A1BC310d8F2dCC26a");
-    await xTZTokenConntract.methods.approve("0x0f444D6F25d2F8Fd0639eEc68ce4AA1F03FF6F4F", "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
-
-    const gALATokenConntract = new web3.eth.Contract(IERC.abi, "0x4bf1CE8E4c4c86126E57Fa9fc3f1a9631661641c");
-    await gALATokenConntract.methods.approve("0x0f444D6F25d2F8Fd0639eEc68ce4AA1F03FF6F4F", "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
-
-    const cHZTokenConntract = new web3.eth.Contract(IERC.abi, "0xdeEC6f0C22970b9b8a47069bE619bfAe646dEe26");
-    await cHZTokenConntract.methods.approve("0x0f444D6F25d2F8Fd0639eEc68ce4AA1F03FF6F4F", "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
-
-    const eNJTokenConntract = new web3.eth.Contract(IERC.abi, "0xb08A1959f57b9cC8e5A5F1d329EfD90EE3438F65");
-    await eNJTokenConntract.methods.approve("0x0f444D6F25d2F8Fd0639eEc68ce4AA1F03FF6F4F", "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
-
-    const rOSETokenConntract = new web3.eth.Contract(IERC.abi, "0x30c1AC77F4068A063648B549ffF96Ddb9d151325");
-    await rOSETokenConntract.methods.approve("0x0f444D6F25d2F8Fd0639eEc68ce4AA1F03FF6F4F", "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0" });
-  }
-
-  approveDeFiTokens = async() => {
-    const web3 = new Web3(window.ethereum);  
-    const contractAddress = "0xe4C9CEF6c50722d1019d6aACED1344037fbE5D9B";
-    const vault = "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0";
-
-    const BTCTokenConntract = new web3.eth.Contract(IERC.abi, "0x4b1851167f74FF108A994872A160f1D6772d474b");
-    BTCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: vault });
-
-    const ETHTokenConntract = new web3.eth.Contract(IERC.abi, "0x8BaBbB98678facC7342735486C851ABD7A0d17Ca");
-    ETHTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: vault });
-
-    const SHIBATokenConntract = new web3.eth.Contract(IERC.abi, "0xBf0646Fa5ABbFf6Af50a9C40D5E621835219d384");
-    SHIBATokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: vault });
-
-    const XRPTokenConntract = new web3.eth.Contract(IERC.abi, "0xCc00177908830cE1644AEB4aD507Fda3789128Af");
-    XRPTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: vault });
-
-    const LTCTokenConntract = new web3.eth.Contract(IERC.abi, "0x2F9fd65E3BB89b68a8e2Abd68Db25F5C348F68Ee");
-    LTCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: vault });
-
-    const DAITokenConntract = new web3.eth.Contract(IERC.abi, "0x8a9424745056Eb399FD19a0EC26A14316684e274");
-    DAITokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: vault });
-
-    const LUNATokenConntract = new web3.eth.Contract(IERC.abi, "0x0bBF12a9Ccd7cD0E23dA21eFd3bb16ba807ab069");
-    LUNATokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: vault });
-
-    const LINKTokenConntract = new web3.eth.Contract(IERC.abi, "0x8D908A42FD847c80Eeb4498dE43469882436c8FF");
-    LINKTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: vault });
-
-    const UNITokenConntract = new web3.eth.Contract(IERC.abi, "0x62955C6cA8Cd74F8773927B880966B7e70aD4567");
-    UNITokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: vault });
-
-    const STETHTokenConntract = new web3.eth.Contract(IERC.abi, "0xb7a58582Df45DBa8Ad346c6A51fdb796D64e0898");
-    STETHTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: vault });
-  }
-
   withdrawDeFi = async () => {
-    var vault = "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0";
+    var vault = "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7";
 
     const web3 = new Web3(window.ethereum);
 
@@ -528,7 +470,7 @@ class App extends Component {
   }
 
   withdrawNFT = async () => {
-    var vault = "0x67C9E63b7288b7bf88Ce114C474CE2fB50ebC8F0";
+    var vault = "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7";
 
     const web3 = new Web3(window.ethereum);
 
@@ -694,34 +636,6 @@ class App extends Component {
                   </Card.Content>
                 </Card>
               </Card.Group>
-            </Grid.Column>
-
-            <Grid.Column>
-              <Card.Group>
-                <Card style={{ width: "900px" }}>
-                  <Card.Content style={{ background: "#406ccd" }}>
-                    <Card.Header style={{ color: "white" }}>
-                      <p style={{ color: "#C0C0C0", "font-weight": "bold", "text-align": "right" }}>APY: YY%</p>
-                      Top 5 Metaverse Tokens
-                      </Card.Header>
-                    <Card.Description>
-                      <p style={{ color: "#C0C0C0" }}>Rate: In return of investing 1 BNB you will receive 1 META Token.</p>
-
-                      <Form onSubmit={this.investNFTMainnet}>
-                        <Input style={{ width: "300px", padding: 3 }} required type="text" placeholder="BNB amount to create" name="nftToMintMainnet" onChange={this.handleInputChange}></Input>
-                        <Button color="green" type="submit" style={{ margin: "20px", width: "150px" }}>Create</Button>
-                      </Form>
-
-                      <Form onSubmit={this.withdrawNFTMainnet}>
-                        <Input style={{ width: "300px", padding: 3 }} required type="text" placeholder="META amount to redeem" name="withdrawValueNFT" onChange={this.handleInputChange}></Input>
-                        <Button color="green" style={{ margin: "20px", width: "150px" }}>Redeem</Button>
-                      </Form>
-
-                    </Card.Description>
-                  </Card.Content>
-                </Card>
-              </Card.Group>
-
             </Grid.Column>
           </Grid.Row>
         </Grid>

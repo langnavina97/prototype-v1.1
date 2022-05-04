@@ -235,7 +235,7 @@ class App extends Component {
     const v = this.state.defiToMintMainnet;
     const valueInWei = web3.utils.toWei(v, 'ether');
     
-    const resp = await this.state.SwapContract.methods.investInFundDefi().send({ from: this.state.account, value: valueInWei })
+    const resp = await this.state.SwapContract.methods.investInFund().send({ from: this.state.account, value: valueInWei })
     .once("receipt", (receipt) => {
       console.log(receipt);
 
@@ -250,63 +250,6 @@ class App extends Component {
       } else {
         swal("Investment failed!");
       }
-  }
-
-  approveNFTTokensMainnet = async() => {
-    const web3 = new Web3(window.ethereum);
-    
-    const contractAddress = "0x40A367c5320440a1aa78aCBC5af0A017Ed1F3772"; 
-
-    const aXSTokenConntract = new web3.eth.Contract(IERC.abi, "0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0");
-    await aXSTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const rACATokenConntract = new web3.eth.Contract(IERC.abi, "0x12BB890508c125661E03b09EC06E404bc9289040");
-    await rACATokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const mBOXTokenConntract = new web3.eth.Contract(IERC.abi, "0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377");
-    await mBOXTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const mCTokenConntract = new web3.eth.Contract(IERC.abi, "0x949D48EcA67b17269629c7194F4b727d4Ef9E5d6");
-    await mCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const aLICETokenConntract = new web3.eth.Contract(IERC.abi, "0xAC51066d7bEC65Dc4589368da368b212745d63E8");
-    await aLICETokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-  }
-
-  approveDeFiTokensMainnet = async() => {
-    const web3 = new Web3(window.ethereum);
-    
-    const contractAddress = "0xB4aF135E2092C916358eF7be58120014794753B5"; 
-
-    const BTCTokenConntract = new web3.eth.Contract(IERC.abi, "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c");
-    BTCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const ETHTokenConntract = new web3.eth.Contract(IERC.abi, "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"); 
-    ETHTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const SHIBATokenConntract = new web3.eth.Contract(IERC.abi, "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D");
-    SHIBATokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const XRPTokenConntract = new web3.eth.Contract(IERC.abi, "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE");
-    XRPTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const LTCTokenConntract = new web3.eth.Contract(IERC.abi, "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94");
-    LTCTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const DAITokenConntract = new web3.eth.Contract(IERC.abi, "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3");
-    DAITokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const MAKERTokenConntract = new web3.eth.Contract(IERC.abi, "0x5f0Da599BB2ccCfcf6Fdfd7D81743B6020864350");
-    MAKERTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const LINKTokenConntract = new web3.eth.Contract(IERC.abi, "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD");
-    LINKTokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const UNITokenConntract = new web3.eth.Contract(IERC.abi, "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1");
-    UNITokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
-
-    const AAVETokenConntract = new web3.eth.Contract(IERC.abi, "0xfb6115445Bff7b52FeB98650C87f44907E58f802");
-    AAVETokenConntract.methods.approve(contractAddress, "115792089237316195423570985008687907853269984665640564039457584007913129639935").send({ from: "0x75c9D3e17284D3AdA7F8B17E06DBE75a98353fF7" });
   }
 
   calcTokenBalanceMainnet = async(token, user) => {
@@ -338,7 +281,7 @@ class App extends Component {
     var amount = withdrawAmountInWei;
     var sAmount = amount.toString();
 
-    await this.state.SwapContract.methods.withdrawFromFundTOPTokens(sAmount
+    await this.state.SwapContract.methods.withdrawFromFundNew(sAmount
     ).send({
       from: this.state.account, value: 0
     }).once("receipt", (receipt) => {

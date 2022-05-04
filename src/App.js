@@ -235,7 +235,7 @@ class App extends Component {
     const v = this.state.defiToMintMainnet;
     const valueInWei = web3.utils.toWei(v, 'ether');
     
-    const resp = await this.state.SwapContract.methods.investInFund().send({ from: this.state.account, value: valueInWei })
+    const resp = await this.state.SwapContract.methods.investInFund(valueInWei).send({ from: this.state.account, value: valueInWei })
     .once("receipt", (receipt) => {
       console.log(receipt);
 
@@ -274,7 +274,7 @@ class App extends Component {
     var withdrawAmt = this.state.withdrawValueDefi;
     var withdrawAmountInWei = web3.utils.toWei(withdrawAmt, 'ether');
 
-    await this.state.DeFiTokenContract.methods.approve("0xB4aF135E2092C916358eF7be58120014794753B5", "7787357773333787487837458347754874574837458374")
+    await this.state.SwapContract.methods.approve("0xB4aF135E2092C916358eF7be58120014794753B5", "115792089237316195423570985008687907853269984665640564039457584007913129639935")
     .send({from: this.state.account});
 
 
